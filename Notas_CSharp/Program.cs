@@ -26,7 +26,7 @@ namespace Notas_CSharp
                 Console.WriteLine("Digite a Ma1 do aluno");
                 Ma1 = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("Digite a Ma1 do aluno");
+                Console.WriteLine("Digite a Mb1 do aluno");
                 Mb1 = Convert.ToDouble(Console.ReadLine());
 
                 Console.WriteLine("Digite a P2 do aluno");
@@ -35,7 +35,7 @@ namespace Notas_CSharp
                 Console.WriteLine("Digite a Ma2 do aluno");
                 Ma2 = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("Digite a Ma1 do aluno");
+                Console.WriteLine("Digite a Mb2 do aluno");
                 Mb2 = Convert.ToDouble(Console.ReadLine());
 
                 Console.WriteLine("Digite a quantidade de aulas do aluno");
