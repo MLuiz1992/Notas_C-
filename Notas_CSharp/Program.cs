@@ -8,6 +8,15 @@ namespace Notas_CSharp
 {
     class Program
     {
+        static void verificaNota(ref double num)
+        {
+            if(num < 0 || num > 10)
+            {
+                Console.WriteLine("Valor inválido, digite novamente");
+                num = Convert.ToDouble(Console.ReadLine());
+                verificaNota(ref num);
+            }
+        }
         static void Main(string[] args)
         {
             unsafe
@@ -22,21 +31,27 @@ namespace Notas_CSharp
 
                 Console.WriteLine("Digite a P1 do aluno");
                 P1 = Convert.ToDouble(Console.ReadLine());
-          
+                verificaNota(ref P1);
+
                 Console.WriteLine("Digite a Ma1 do aluno");
                 Ma1 = Convert.ToDouble(Console.ReadLine());
+                verificaNota(ref Ma1);
 
                 Console.WriteLine("Digite a Mb1 do aluno");
                 Mb1 = Convert.ToDouble(Console.ReadLine());
+                verificaNota(ref Mb1);
 
                 Console.WriteLine("Digite a P2 do aluno");
                 P2 = Convert.ToDouble(Console.ReadLine());
+                verificaNota(ref P2);
 
                 Console.WriteLine("Digite a Ma2 do aluno");
                 Ma2 = Convert.ToDouble(Console.ReadLine());
+                verificaNota(ref Ma2);
 
                 Console.WriteLine("Digite a Mb2 do aluno");
                 Mb2 = Convert.ToDouble(Console.ReadLine());
+                verificaNota(ref Mb2);
 
                 Console.WriteLine("Digite a quantidade de aulas do aluno");
                 QtAula = Convert.ToDouble(Console.ReadLine());
@@ -47,21 +62,21 @@ namespace Notas_CSharp
                 A1 = P1 * 0.7 + Ma1 * 0.2 + Mb1 * 0.1;
                 A2 = P2 * 0.7 + Ma2 * 0.2 + Mb2 * 0.1;
                 media = (A1 + 2 * A2) / 3;
-                presenca = (QtFalta / QtAula) * 100;
+                presenca = ((QtAula - QtFalta) * 100) / QtAula;
 
-                if(media >= 5 && presenca <= 75)
+                if(media >= 5 && presenca >= 75)
                 {
                     Console.WriteLine("O aluno " + nome.ToString() + " está APROVADO!");
                     Console.WriteLine("Nota " + media);
                     Console.WriteLine("Presença " + presenca + "%");
                 }
-                else if((media >= 3 && media <= 5) && presenca <= 75)
+                else if((media >= 3 && media <= 5) && presenca >= 75)
                 {
                     Console.WriteLine("O aluno " + nome.ToString() + " está em RECUPERAÇÃO!");
                     Console.WriteLine("Nota " + media);
                     Console.WriteLine("Presença " + presenca + "%");
                 }
-                else if (media < 3 && presenca <= 75)
+                else if (media < 3 && presenca >= 75)
                 {
                     Console.WriteLine("O aluno " + nome.ToString() + " está REPROVADO POR NOTA!");
                     Console.WriteLine("Nota " + media);
